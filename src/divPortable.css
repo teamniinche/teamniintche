@@ -1,0 +1,30 @@
+#divPortable{
+    display: none;
+    box-shadow: -2px 2px 4px grey,2px 0px 1px rgba(0,0,0,0.2);
+    }
+#imgReal{
+    max-height: 80%;
+    margin:10% 3%;
+    }
+#spanReal{
+    color:brown;
+    font-size:1.1em;
+    }
+    #spanReal:hover{
+        font-weight: bold;
+        text-decoration:underline;
+        }
+@media screen and (max-width:700px) {
+    #divPortable {
+        display:flex;
+        width:96%;
+        Height:40px;
+        flex-direction:row;
+        justify-content: flex-start;
+        align-items: center;
+        margin:10px 2%;
+        margin-bottom:-5px;
+        line-height: 20px;
+        cursor:pointer;
+        }
+    }

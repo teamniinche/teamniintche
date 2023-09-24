@@ -1,0 +1,609 @@
+html, body{
+    background-color: #f1f1f1;
+    margin:0px;
+    padding:0px;
+    border:none;
+    height: 1000px;
+    
+}
+body{
+    margin-top:20px;
+    }
+    /* ::-moz-scrollbar{
+        width:4px;
+        }
+    ::-moz-scrollbar-track{
+        background: #f1f1f1;
+        }
+    ::-moz-scrollbar-thumb{
+        background: rgba(255, 0, 0, 0.4);
+        } */
+    hr{
+        color: rgba(255, 0, 0, 0.4);
+        margin: 0px 2em;
+        width: 87%;
+        }
+    p{
+        /* position: absolute; */
+        color: #000;
+        margin-left: 25% ;
+        margin-top:  80%;
+         }
+        /* .descrip{
+            position: absolute;
+            display: flex;
+            background: rgba(255, 0, 0, 0.4);
+            justify-content: flex-start;
+            width: 100%;
+            height: 30px;
+            overflow: hidden;
+            text-align: left;
+            font-size: 14px;
+            margin-top: 50%;
+        }
+        .descrip .para1{
+            color: beige;
+            margin-left: 0px;
+            margin-top: 2px;
+            letter-spacing: 2px;
+            font-size: 24px;
+            animation: defilant linear 20s infinite ;
+        }
+        .descrip .para2{
+            color: beige;
+            margin-right: 0px;
+            margin-top: 2px;
+            letter-spacing: 2px;
+            font-size: 24px;
+            animation: defilant linear 20s 10s infinite;
+        }
+        
+        .img1{
+            position: absolute;
+            height: 150px;
+            width: 150px;
+            animation: toupiy 20s infinite;
+        }
+        
+        .div_test1,.div_test2,.div_test3,.div_test4{
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            margin-left: 35%;  
+        }
+        .div_test{
+            position: absolute;
+            background: url(../images/casa_assis.jpg) no-repeat center;
+            background-size: contain;
+            width: 150px;
+            height: 150px;
+            animation: toupiy linear 20s 4s infinite;
+            margin-left: 50%;
+            margin-top:5%;
+            
+        }
+        .div_test1{
+            position: absolute;
+            background: url(../images/casa_speech_junior.jpg) no-repeat center;
+            background-size: contain;
+            width: 150px;
+            height: 150px;
+            margin-left: 50%;
+            margin-top:5%;
+            animation: toupiy  20s 8s infinite;
+            
+        }
+        .div_test2{
+            position: absolute;
+            background: url(../images/trois_niintches.jpg) no-repeat center;
+            background-size: contain;
+            width: 150px;
+            height: 150px;
+            margin-left: 50%;
+            margin-top:5%;
+            animation: toupiy 20s 12s infinite;
+            
+        }
+        .div_test3{
+            position: absolute;
+            background: url(../images/arrivee_ecole2.jpg) no-repeat center;
+            background-size: contain;
+            width: 150px;
+            height: 150px;
+            margin-left: 50%;
+            margin-top:5%;
+            animation: toupiy 20s 16s infinite;
+            
+        }
+        .div_test4{
+            position: absolute;
+            background: url(../images/) no-repeat center;
+            background-size: contain;
+            width: 150px;
+            height: 150px;
+            margin-left: 50%;
+            margin-top:5%;
+            animation: toupiy 20s 18s infinite;
+            
+        }
+        .div_head{
+            position: absolute;
+            max-width: 100%;
+            max-height: 100%;
+            }
+            .head{
+                width: 100%;
+                height: 100%;
+        
+            } */
+            /* .bioteam{
+                position: absolute;
+                width: 150px;
+                height: 40px;
+                left: 15px;
+                top: 40px;
+                }
+                .teamname{
+                    position: absolute;
+                    background: rgba(253, 252, 252,0.6);
+                    width: 150px;
+                    height: 20px;
+                    margin: 0px 80px;
+                    margin-top: 40px;
+                    text-align: center;
+                    }
+                    .img2{
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        margin-left: 80px;
+                    }
+                    .teamname p{
+                        margin: 5px;
+                        padding: 0px;
+                        color: rgb(243, 46, 46);
+                        font-size: 20px;
+                    } */
+
+header{
+    width:100%;
+    height:300px;
+    background: url(../images/patriarkat.jpg) no-repeat center;
+    background-size: 100%;
+    padding: 0px;
+    margin: 0px;
+    }
+    .top-bar{
+        float: left;
+        width: 100%;
+        height: 60px;
+        background-color:rgba(255, 0 ,0,.5);
+        color: #fff;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+        font-size: .8em;
+        text-align: center;
+        position: fixed;
+        }
+        .logo{
+            width: 40px;
+            height: 40px;
+            border: solid 3px white;
+            border-radius:50%;
+            margin-top: -20px;
+            padding-top:0px;
+            }
+            #logo{
+                text-decoration: none;
+                }
+            .logo:hover{
+                transition:10s;
+                }
+
+        .nav-items{
+              padding: 3px;
+            /* padding-right: 2px; */
+            }
+            .nav-items a{
+                color: rgba(253, 252, 252,0.7);
+                text-decoration: none;
+                padding:4px 9px;
+                letter-spacing: 1px;
+                margin-top: 0px;
+                }
+                .nav-items a:hover{
+                    color: rgba(253, 252, 252,1);
+                    border-bottom:solid 2px #fff;
+                    }
+                .nav-items a:active{
+                    background-color: rgba(253, 252, 252,0.4);
+                    color: rgba(0, 0, 0, 1);
+                    border-bottom:solid 2px #fff;
+                    border-radius: 2px;
+                    }
+                .nav-items img{
+                    width: 1.7em;
+                    height: 1.4em;
+                    }
+                
+            .div_flou{
+                width: 100%;
+                margin-top: 0px;
+                height: 300px;
+                background-color: rgba(0, 0, 0, 0.6);
+                } 
+
+
+#sections{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    width: 100%; 
+    height: 900px;
+    /* overflow: hidden; */
+    padding: 0px;
+    }
+    #meta-data{
+        width: 40%;
+        background-color: rgba(0, 0, 0, 0.1);
+        height: 400px;
+        margin: 2%;
+        }
+        .integrer{
+            color: #000;
+            }
+            .integrer p{
+                color: #000;
+                }
+            #liste_reseaux_sociaux{
+                color: #000;
+                }
+                #liste_reseaux_sociaux li{
+                    color: #000;
+                    }
+                    #liste_reseaux_sociaux a{
+                        color: #000;
+                        }
+        .opinion{
+            color: #000;
+            }
+            .ecrire{
+                color: #000;
+                }
+            #textare{
+                color: #000;
+                }
+            .submit_idee{
+                color: #000;
+                }
+
+    #tronc{
+        background: rgb(255, 255, 255);
+        width: 96%;
+        height: 400px;
+        margin: 2%;
+        box-shadow: 10px -3px 8px rgba(0, 0, 0, 0.1);
+        overflow: scroll;
+        }
+        .infos_large{
+            margin-top: 0px;
+            margin-left: 0px;
+            width: 95%;
+            }
+            .infos_large p{
+                margin:0.8em 2em;
+                width: 95%;
+                }
+                .infos_large p::before{
+                    content: "";
+                    background: rgba(255, 0 ,0,.5);
+                    display:inline-block;
+                    width:1em;
+                    height:1em; 
+                    margin: .6em;                      
+                    }
+            .infos_large hr{
+                width: 95%;
+                margin:0.8em 2em;
+                }
+        .text{
+            margin: 0px;
+            }
+            .text p{
+                margin:0.8em 2em;
+                text-align:justify;
+                color: rgba(0, 0, 0, 0.8);
+                margin-top: 18px;
+                /* margin-left: 2em; */
+                font-size: 20px;
+                }
+            .text img{
+                float: left;
+                width: 10em;
+                height: 10em;
+                margin-right: 1em;
+                }
+                
+    #sidebar{
+        background: rgb(0, 255, 255);
+        width: 96%;
+        height: 150px;
+        margin: 2%;
+        margin-bottom: 0px;
+        box-shadow: 10px -3px 8px rgba(0, 0, 0, 0.1);
+        }
+        #sidebar hr{
+            margin-top: 5px;
+            width: 12%;
+            }
+        .chantiers{
+            width: 100%;
+            height: 30%;
+            margin: 0px;
+            }
+            #chantiers_title{
+                color: #000;
+                }
+            .chantiers p{
+                /* margin: 2% 3%; */
+                margin-left:2em;
+                margin-top: .6em;
+                margin-bottom: 12px;
+                font-size: 12px;
+                }
+
+        .chantiers_bloc{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: auto;
+            margin:.8em  0px;
+            /* border: solid 1px rgba(255, 0, 0, 0.6); */
+            }
+            .chantiers_bloc .chantiers{
+                width: 19%;
+                }
+                .chantiers_bloc a,.chantiers_bloc a p{
+                    margin: 0px 1.5em;
+                    }
+                .chantiers_bloc a{
+                    display: flex;
+                    flex-direction: row;
+                    margin: 0em .2em;
+                    }
+                    #img01,#img02{
+                        width:3em;
+                        height:3em;
+                        }
+                    .chantiers_bloc a p{
+                        /* width:2em;
+                        height:2em;  */
+                        margin:0em .2em;
+                        }
+                    .chantiers_bloc a .item_left{
+                        border:1px dotted rgba(255, 0, 0, 0.6);
+                        background-color: rgba(255, 255, 255,1);
+                        border-left: none;
+                        height: 3em;
+                        }
+                #chantiers_title p{
+                    color: blue;
+                    margin:.5em 2em;
+                    width: 95%;
+                    font-size: 16px;
+                    }
+                    #chantiers_title p::before{
+                        content: "";
+                        background: rgba(255, 0 ,0,.5);
+                        display:inline-block;
+                        width:1em;
+                        height:1em; 
+                        margin: .6em;                      
+                        }
+
+
+#footer{
+    background: #000;
+    width: 100%;
+    height: 100px;
+    }
+
+
+
+@keyframes toupiy {
+    0%{
+        margin-left: 70%;
+        transform: scale(0.2);
+        opacity: 0.05;
+        z-index: 0;
+    }
+    12%{
+        margin-left: 50%;
+        opacity: 0.2;
+        z-index: 2;
+    }
+    20%{
+        margin-left: 60%;
+        opacity: 0.4;
+        z-index: 5;
+    }
+    25%{
+        margin-left: 70%;
+        opacity: 1;
+        z-index: 5;
+    }
+    50%{
+        margin-left: 75%;
+        margin-top: 5%;
+        z-index: 10;
+        transform: rotateY(360deg) scale(2.3);
+    }
+    65%{
+        z-index: 9;
+        transform: rotateY(360deg) scale(0.1);
+        margin-left: 92%;
+        opacity: 1;
+    }
+    75%{
+        margin-left: 87%;
+        transform: scale(0.1);
+        opacity: 0.1;
+        z-index: 9;
+    }
+    87%{
+        margin-left: 85%;
+        opacity: 0.1;
+        z-index: 8;
+    }
+    100%{
+        margin-left: 80%;
+        transform: scale(0.05);
+        opacity: 0.05;
+        z-index: 7;
+    }
+}
+@keyframes defilant {
+    0%{
+        margin-left: -75%;
+    }
+    100%{
+        margin-left: 100%;
+    }
+    
+}
+@media screen and (min-width:520px) {
+
+    .top-bar{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 4px 20px;
+        height: 50px;
+        }
+        .nav-items{
+            letter-spacing: 1px;
+            margin: 12px;
+            margin-right: 25px;
+        }
+
+}
+@media screen and (min-width:700px) {
+    
+    #sections{
+        flex-direction: row-reverse;
+        align-items: flex-start;
+        width: 100%; 
+        height: 900px;
+        margin: 0px;
+        padding: 0px;
+        }
+        #meta-data{
+            display: flex;
+            flex-direction: column;
+            width: 15%;
+            background-color: rgba(0, 0, 0, 0.1);
+            height: 60%;
+            margin: 2% 1.5%;
+            }
+            .integrer,.opinion{
+                margin: 0px;
+                margin: .5em;
+                width: 92%;
+                background-color: red;
+
+                }
+            .integrer{
+                height: 30%;
+                margin-bottom: 0.1em;
+                
+                }
+                .contacter{
+                    padding: .4em 16%;
+                    margin: 0em;
+                    color: #fff;
+                    font-weight: bold;
+                    font-weight: 18px;
+                    }
+                    .contacter ul{
+                        margin: 0px 0px;
+                        padding: 0px;
+                        }
+                        iframe{
+                            width: 100px;
+                            height: 100px;
+                        }
+            .opinion{
+                height: 65%;
+                margin-top: 0px;
+                }
+                .ecrire{
+                    margin: .2em;
+                    padding: 0px 24%;
+                    color: #fff;
+                    font-weight: bold;
+
+                    }
+                    .textar{
+                        width: 100%;
+                        margin: 0px;
+                        padding: 0px;
+                        height:90%;
+                        font-size: 18px;
+
+                    }
+                    .submit_idee{
+                        padding: .2em;
+                        font-size: 16px;
+                        width: 90%;
+                        margin: .5em;
+                        color: rgba(255, 0, 0, 0.7);
+
+                    }
+            
+
+            .infos_large,.chantiers{
+                margin-top: 0px;
+                margin-left: 0px;
+            }
+            #tronc{
+                float: left;
+                background: rgb(255, 255, 255);
+                width: 70%;
+                height: 97%;
+                margin: 2%;
+                margin-right: 0%;
+                }
+            #sidebar{
+                float: left;
+                background: rgba(255, 255, 255,.6);
+                width: 18%;
+                height:97%;
+                margin: 2%;
+                margin-right:0px;
+                box-shadow: none;
+                /* box-shadow: -2px 4px 2px 4px rgba(0, 0, 0, 0.05); */
+                }
+                .chantiers{
+                    display: block;
+                    height: 30px;
+                    margin: 0px .1em;
+                    }
+                .chantiers_bloc{
+                    width: 100%;
+                    height: auto;
+                    margin:2em  0px;
+                    border: solid 1px rgba(255, 0, 0, 0.6);
+                    }
+                    .chantiers a,.chantiers a p{
+                        margin: 0px 1.5em;
+                        }
+                    .chantiers_bloc .chantiers::before{
+                        content: "";
+                        background: rgba(255, 0 ,0,.5);
+                        display:inline-block;
+                        width:.5em;
+                        height:.5em;
+                        margin: 0em .2em;
+                        }
+
+        }

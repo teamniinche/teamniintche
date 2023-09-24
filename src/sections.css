@@ -1,0 +1,27 @@
+.sections{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    width: 100%; 
+    min-height:100%;
+    padding: 0px;
+    }
+
+/* @media screen and (min-width:1300px){
+    .sections{
+        flex-direction: row-reverse;
+        align-items: flex-start;
+        align-items: left;
+        justify-content: space-between;
+        width: 100%;
+        min-height:100%; 
+        margin: 0px;
+        margin: 2% 1%;
+        padding: 0px;
+        } */
+    /* } */
+/* @media screen and (max-width:600px) {
+    .sections{
+        margin-top:0px;
+        }
+    } */

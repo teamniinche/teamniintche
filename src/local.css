@@ -1,0 +1,30 @@
+ #entete{
+    width: 92%;
+    height: fit-content;
+    margin: 10px 0px;
+    margin-top: 0px;
+    margin-right: 0%;
+    text-align: left;
+    line-height: 4em;
+    font-weight: bold;
+    list-style: circle;
+    padding:2em;
+    padding-right:0px;
+    }   
+    #entete li{
+        width:95%;
+        border-bottom:.05px dotted grey;
+        text-indent: 5px;
+        letter-spacing: 2px;
+        height:50px;
+        }
+        #entete li:hover{
+            border-color: brown;
+            background-color: white;
+            }
+    #entete a{
+        display:inline-block;
+        text-decoration: none;
+        width: 95%;
+        font-size:1.2em;
+        }

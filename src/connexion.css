@@ -1,0 +1,66 @@
+.connexionContainer{width:50%;
+    margin:15% 25%;
+    padding:2%;
+    background-color:rgba(0,200,0,.2);
+    box-shadow:-10px 6px grey,5px 12px grey;
+    margin-bottom:3%;
+    margin-top:1%;
+    }
+.connexionContainer h5 span{display:inline-block;
+    width:100px;
+    height:1.5em;
+    margin:10px;
+    text-align:center;
+    font-size:1em;
+    color:white;
+    background-color:rgba(200,0,0,.5);
+    }
+.sousTitre{
+    color:rgba(0,0,0,.5);
+    margin:20px 5%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size:1em;
+    }
+.titreConnexion{
+    width: 50%;
+    margin:1.5% 25%;
+    text-align: center;
+    color: blue;
+    font-weight: bolder;
+    letter-spacing: 2px;
+    font-size: 20px;
+    }
+
+.identifiant,.securite{
+    color:grey;
+    width:75%;
+    height:75%;
+    margin:0px;
+    padding:0px;
+    }
+
+.imgLg{
+    max-height:.7em;
+    width:70px;
+    margin:0px;
+    padding:0px
+    }
+#buttonConnectClick{
+    color:white;
+    text-align:center;
+    padding:5px 0px;
+    background-color:red;
+    display:none;
+    }
+@media screen and (max-width:600px){
+        .connexionContainer{
+            width:80%;
+            margin:10px 10%;
+            margin-left:8%;
+            }
+        .titreConnexion{
+            padding-top:20px;
+            width:98%;
+            margin:0px 1%;
+            }
+    }

@@ -1,0 +1,148 @@
+
+                    .sideBar{
+                        display:inline-block;
+                        background: rgba(255, 255, 255,.6);
+                        width: 30%;
+                        height:97%;
+                        margin-right:0px;
+                        box-shadow: none;
+                        }
+                        #chantiers_title{
+                            color: #000;
+                            }
+                            .sideBar hr{
+                                margin-top: 5px;
+                                margin-left:0px;
+                                width: 12%;
+                                }
+                            #chantiers_title p{
+                                color: blue;
+                                margin:.5em 2em;
+                                width: 95%;
+                                font-size: 16px;
+                                }
+                                #chantiers_title p::before{
+                                    content: "";
+                                    background: rgba(255, 0 ,0,.5);
+                                    display:inline-block;
+                                    width:1em;
+                                    height:1em; 
+                                    margin: .6em;                      
+                                    }
+                        
+                        .listChantiers{
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            overflow-x: scroll;
+                            min-height: 100%;
+                            }
+                            .chantiers_bloc{
+                                display: flex;
+                                flex-direction: row;
+                                opacity: 0.8;
+                                width: 85%;
+                                height: 1%;
+                                margin:.2em  0px;
+                                margin-top:1em;
+                                border: solid 1px rgba(255, 0, 0, 0.2);
+                                box-shadow: -2px -1px  rgba(200, 0 ,0,.7);
+                                cursor: pointer;
+                                }
+                                .chantiers_bloc:hover{
+                                    transition: .2s ease-out;
+                                    opacity:1;
+                                    width: 90%;
+                                    /* box-shadow: 0 4px 8px 0 rgba(255, 0, 0, 0.2), 0 6px 20px 0 rgba(255, 0, 0, 0.19); */
+                                }
+                                /* #chantier1{
+                                    margin:.2em  0px;
+                                } */
+                                    .chantiers_bloc a,.chantiers_bloc a p{
+                                        margin: 0px 1.5em;
+                                        }
+                                    .chantiers_bloc a{
+                                        width: 100%;
+                                        display: flex;
+                                        flex-direction: row;
+                                        margin: 0em;
+                                        text-decoration: none;
+                                        }
+                                        .chantiers_bloc a img{
+                                            width:30%;
+                                            min-height:100%;
+                                            }
+                                        .chantiers_bloc a p{
+                                            color: rgba(0, 0 ,0,.5);
+                                            font-weight: bold;
+                                            text-align: left;
+                                            font-size: .8em;
+                                            margin:0em .1em;
+                                            /* overflow-y:scroll; */
+                                            }
+                                            .chantiers_bloc a .item_left{
+                                                border:1px dotted rgba(255, 0, 0, 0.6);
+                                                background-color: rgba(255, 255, 255,.6);
+                                                width:70%;
+                                                border-left: none;
+                                                min-height: 100%;
+                                                }
+                                                .chantiers_bloc a .item_left span{
+                                                    font-weight: lighter;
+                                                    font-size: .8em;
+                                                    }
+@media screen and (max-width:700px) {                   
+    .sideBar{
+        display: none;
+        width: 100%;
+        min-height: 100%;
+        margin-bottom: 0px;
+        box-shadow: 10px -3px 8px rgba(0, 0, 0, 0.1);
+        margin-top: 0px;
+        }
+        .listChantiers{
+            width:100%;
+            }
+            .chantiers_bloc{
+                width: 90%;
+                border: none;
+                box-shadow: none;
+                }
+                .chantiers_bloc:hover{
+                    width: 97%;
+                    box-shadow: 0 4px 8px 0 rgba(255, 0, 0, 0.5), 0 6px 20px 0 rgba(255, 0, 0, 0.2);
+
+                    }
+                #chantier1{
+                    margin-top:2px;
+                    }
+
+                .sideBar hr{
+                    margin-top: 2px;
+                    margin-left:0px;
+                    width: 100%;
+                    }
+                    .chantiers_bloc a p{
+                        text-align: center;
+                        }
+    } 
+    @media screen and (max-width:700px) and (min-width:600px){
+        .sideBar{
+            margin-top: 0px;
+            }
+
+    }
+    @media screen and (min-width:700px) and (max-width:1300px){
+        .sideBar{
+            display:inline-block;
+            width: 30%;
+            }
+        .stock{
+            box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19);
+        }
+    }
+    @media (orientation:landscape) {
+        .sideBar {
+          display:inline;
+        }
+    }              

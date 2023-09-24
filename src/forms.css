@@ -1,0 +1,118 @@
+.form{
+    width:90%;
+    border:1px solid grey;
+    padding-bottom:60px;
+    padding:1%;
+    margin:2% 4%;
+    background-color:white;
+    box-shadow: -5px 2px 8px grey,5px 5px 8px grey;
+}
+.divEnglobantInputEtIcon{
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
+    height:100%;
+    padding:0px;
+    margin:0px;
+    width:96%;
+    }
+#buttonValider{
+    width:50%;
+    height:30px;
+    margin-left:10%;
+    margin:4%;
+    display:none;
+    }
+.form_input{
+    margin:0px;
+    border:0.001px grey dotted;
+    border-radius:5px;
+    width:82%;
+    height:50%;
+    padding:6px 4%;
+    border-bottom: 2px solid rgba(255,0,0,.3);
+    background-color: #fff;
+    font-size: 1em;
+    letter-spacing: 2px;
+    }
+.spanForIcon{
+    display: flex;
+    align-items:center;
+    justify-content:flex-end;
+    height:80%;
+    width:10%;
+    padding:6px 1%;
+    margin:0px;
+    }
+.identifiant,.calendrier,.formation,.telephone,.mail,.localisation{
+    color:grey;
+    width:75%;
+    height:75%;
+    margin:0px;
+    padding:0px;
+    }
+
+    .form_input:hover{
+        border-bottom: 2px solid rgba(255,0, 0,.6);
+        }
+    .form_input:focus{
+        background-color: rgba(0,0, 0,.3);
+        border-radius: 5px;
+        color:#fff;
+        font-size: 18px;
+        }
+.div-input{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    width:90%;
+    height:70px;
+    padding:0%;
+    margin:2% 5%;
+    margin-top:7%;
+    }
+    .div-input span{
+        display:flex;
+        flex-direction:row;
+        height:100%;
+        align-items:center;
+    }
+.labelInputString{
+    width:80%;
+    height:20%;
+    margin:10px 10%;
+    padding:0px 3%;
+    color:rgba(0,0,0,.4);
+    }
+.divtec{
+    height:fit-content;
+    width:100%;
+    margin:0px;
+    padding:0px;
+}
+@media screen and (min-width:1000px){
+    .form{
+        max-width:60%;
+        margin:2% 20%;
+        }
+    }
+@media screen and (max-width:600px){
+    .divtec{
+        padding-top:0px;
+        /* margin-top:0px; */
+        }
+
+    }
+@media screen and (max-width:550px){
+    .labelInputString{
+        font-size:10px;
+    }
+    .div-input span{
+        display:flex;
+        flex-direction:column;
+        height:100%;
+        align-items:center;
+        justify-content:center;
+    }
+    }

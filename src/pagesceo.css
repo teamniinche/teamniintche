@@ -1,0 +1,70 @@
+#navbar{
+    height: 70px;
+    width: 96%;
+    margin:0px 2%;
+    margin-top:60px;
+    background-color: whitesmoke;
+    position: fixed;
+    border: none;
+    box-shadow: 0px 2px 4px grey;
+    margin-top:88px;
+    }
+#buttons{
+    display:none;
+}
+#divTechPceo{
+    padding-top:76px;
+    }
+    .navbarItems{
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        padding: 0;
+        min-height: 100%;
+        width: 50%;
+        align-items: center;
+        }
+        #gestLogo{
+            float: left;
+            margin-left:10px;
+            width: 20%;
+            color: brown;
+            }
+        #navUl{
+            float: right;
+            margin-right:5px;
+            width: 70%;
+            justify-content: space-around;
+            }
+            #navUl li{
+                height: 65px;
+                width: 32%;
+                text-decoration: none;
+                text-shadow: 2px 2px 1px grey;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                }
+                #navUl li:hover{
+                    border-bottom: 6px solid brown;
+                    }
+
+ .succesButton,.dangerButton{
+    width:50vw;
+    background-color:rgba(0,100,0,.6);
+    color:white;
+    border:none;
+    font-weight:bold;
+    letter-spacing:2px;
+    border-radius:4px;
+    margin:2em;
+    padding:1em;
+ }
+ .dangerButton{
+    background-color:rgba(200,0,0,.6);
+    
+ }
+ overlay1{
+    background-color:black;
+ }

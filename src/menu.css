@@ -1,0 +1,38 @@
+#menu{
+    display: none;
+    min-width: 50vw;
+    height: fit-content;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    line-height: 35px;
+    padding:30px 10px;
+    padding-top: 0px;
+    margin-right: 5px;
+    border-left: .5px solid transparent;
+    border-bottom: 1.5px solid transparent;
+    border-color: rgb(0,0,100);
+    background-color: rgb(255,255,255);
+    float: left;
+    z-index: 100;
+    }
+    #menu hr{
+        width: 100%;
+        color: rgba(100,0,0,.1);
+        margin: 0px;
+        }
+        .menu_link{
+            color:brown;
+            width: 100%;
+            text-align: left;
+            text-decoration: none;
+            font-size:15px;
+            }
+        .menu_link:hover{
+            background-color: rgba(55, 0, 0, 0.2);
+            }
+        #fermer:hover{
+                display:inline-block;
+                background-color: rgba(55, 0, 0, 0.2);
+                }
+        
