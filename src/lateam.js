@@ -1,36 +1,6 @@
-// import React,{useEffect,useState} from 'react';
-// import {Link} from 'react-router-dom';
-// //import Rubriques from './lateam.json';
-// import './lateam.css';
-
-
-// export default function LaTeam() {
-//   const [Rubriques,setRubriques]=useState([]);
-
-//   useEffect(() =>{
-//     fetch('/quisommesnous')
-//       .then (response=>response.json())
-//       .then(data=>setRubriques(data))
-//       .catch(error=>alert("il y'a eu erreur."));
-//   },[])
-//   return (
-//     <div className='teamBody'>
-//         <ul id="entete">
-//             <li><a href='#0'>Motivations</a></li>
-//             <li><a href='#1'>Missions</a></li>
-//             <li><a href='#2'>Historique</a></li>
-//             <li><a href='#3'>Réalisations</a></li>
-//             <li><a href='#4'>Histoires</a></li>
-//         </ul>
-//         <div>{Rubriques.map(item=><Lateam key={item.titre} rubrique={item} />)}</div>
-//     </div>
-//   )
-// }
-
 import React,{useEffect,useState} from 'react';
 import { Link } from 'react-router-dom';
 import './lateam.css';
-// import Rubriques from './lateam.json'
 
 export default function LaTeam() {
   const [rubriques, setRubriques] = useState([]);
@@ -105,34 +75,5 @@ function Lateam(props) {
     </div>
   );
 }
-
-
-
-
-// function Lateam(props) {
-//     let styleLink={ display:"inline",
-//                     fontWeight:"bold",
-//                     fontSize:"1em",
-//                     color:"rgba(0,0,150,1)",
-//                     textDecoration:"underline"
-//                   }
-//     let spann = (
-//       <Link to="/" style={styleLink}>Voir page dédiée aux réalisations<br/></Link>
-//     );
-  
-//     let forReal = props.rubrique.titre === "Réalisations"
-//       ? (
-//           <>
-//             Pour plus de détails,{spann} {props.rubrique.redaction}
-//           </>
-//         )
-//       : props.rubrique.redaction;
-//   return (
-//     <div className='rubrique' id={props.rubrique.id} >
-//         <h3><a href='#topbaar' style={{letterSpacing:"2px"}}>{props.rubrique.titre+ '  🔺'}</a></h3>
-//         <p>{forReal}</p>
-//     </div>
-//   )
-// }
 
 

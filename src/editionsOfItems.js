@@ -32,10 +32,8 @@ export function EditRubrique(props){
 export function EditChantier(props){
     const item=props.item
     function handleChange(element,valeur){props.render(element,valeur)} // props.render({...item,[element]:valeur})
-    // const itemContext=useContext(props.EditContext)
     
     return <form style={{width:"91%",minHeight:"80%",padding:".5em",margin:"0px",display:"flex",flexDirection:"column",alignItems:"flex-start"}}>
-        {/* <h3 style={{color:"brown",letterSpacing:"3px",margin:"0px",padding:"1em 0px",textDecoration:"4px underline brown"}}>Modification de Chantier</h3> */}
         <Input name="name de l'établissement" width="80%" margin="1em 0px" type="text" item={item} render={(elem,val)=>handleChange(elem,val)}/>
         <Input name="region" list width="70%" margin="1em 0px" type="text" item={item} render={(elem,val)=>handleChange(elem,val)}/>
         <Input name="departement" list width="80%" margin="1em 0px" type="text" item={item} render={(elem,val)=>handleChange(elem,val)}/>
@@ -195,7 +193,7 @@ export function EditMembreAdmin(props) {
     }
     function handleClick(){
         const pseudo=item.pseudo;
-        UpdateProps('/api/majmembres/'+pseudo,state);
+        UpdateProps('/api/membres/admin/'+pseudo,state);
 
     }
     const nomComplet=item.firstName + ' ' + item.lastName
@@ -289,7 +287,7 @@ export function EditMembre(props){
     const pseudo = props.item.pseudo
     const handleValide=()=>{
         if(VALIDITE){
-            UpdateProps('/api/majmembres/'+pseudo,item)
+            UpdateProps('/api/membres/'+pseudo,item)
         }else{
             const alert=document.getElementById('zoneAlert')
             alert.style.display='block';

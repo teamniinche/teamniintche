@@ -1,25 +1,14 @@
 import React,{useEffect} from 'react';
 import {useState,useRef} from 'react';
 import { useSelector} from 'react-redux'
-import {setIndex} from './stoore.js';
 import { MapContainer, TileLayer,Marker,Popup} from 'react-leaflet'
 import {Icon} from 'leaflet';
 import './leafletCss.css'
 
 export default function Map(props) {
-    // const srcPopup=require('./images/background.jpg')
-    // const lat=props.chantier.lat!==undefined?props.chantier.lat:14.5998233;
-    // const long=props.chantier.long!==undefined?props.chantier.long:-14.7402745;
-    // alert(lat+"  "+long)
-    const [center,setCenter]=useState([14.5998233, -14.7402745]) //[lat, long]
-    // const [kZoom,setKZoom]=useState(0)
+    const [center,setCenter]=useState([14.5998233, -14.7402745])
     const [kZoom,setKZoom]=useState(0)
     const [coord,setCoord]=useState(null)
-    // const clicked=useSelector(state=>{return state.userNewCh.local})
-    // useEffect(()=>{
-    //   const marker=markerRef.current
-    //   if(marker) marker.closePopup()
-    // })
     const mapRef=useRef(null);
 
     // un tableau de refs qui permet une ref à chaque element d'une liste sur laquelle on boucle
@@ -33,10 +22,6 @@ export default function Map(props) {
         iconAnchor:[fc/2,fc],
         popupAnchor:[0,-fc*3/4]
     })
-    // const showPopup=(index)=>{
-    //     const marker=listMarkerRef.current[index]
-    //     if(marker) marker.openPopup()
-    // }
     const handleClick=(site,index)=>{ 
       // document.querySelector('.leaflet-container').style.height="12vw"
       const map=mapRef.current; //A mapContainer on l'utilise en ref={mapRef} au lieu de whenCreayed() qui ne mar che pas d'ailleurs
@@ -50,10 +35,7 @@ export default function Map(props) {
                           setKZoom(20)
 
                       }
-// const handleSideBarClick=()=>{
-//   // const clicked=useSelector(state=>{return state.userNewCh.local})
-// }
-// const centre=center;
+
   return <div id="map">
      
     <MapContainer ref={mapRef} center={center} zoom={6.2} scrollWheelZoom={false} className='mapContainer'>
@@ -70,13 +52,13 @@ export default function Map(props) {
         {/* <Sites render={(num)=>setKZoom(num)}/> */}
     </MapContainer>
      {/* center of Senegal:[14.5998233, -14.7402745] */}
-     <div id="div-avec-map" style={{display:"flex",flexDirection:"column",height:"95%",padding:"0px",marginLeft:"0px"}}>
-          <div className="enfant-de-list" style={{display:"flex",flexDirection:"row",width:"fit-content",marginBottom:"15px"}}>
-              <p style={{margin:"0px 10px",color:"green",fontWeight:"bold"}}>{sites.length} CHANTIERS</p>
-              <input value={coord} onChange={()=>null} style={{textAlign:"center",height:"2em",width:"80%",margin:"0px",padding:"0px",fontSize:"0.7rem"}}/>
+     <div id="div-avec-map">
+          <div className="enfant-de-list">
+              <p>{sites.length} CHANTIERS</p>
+              <input value={coord} onChange={()=>null}/>
           </div>
-          <ul className="enfant-de-list" style={{display:"grid",color:"rgb(0,0,160)",listStyle:"none",width:"95%",borderTop:"2px solid grey",margin:"0px 2%",padding:"0px"}}> 
-              {sites.map((site,index)=><li key={index} id={'ID'+index} onClick={()=>{handleClick(site,index)}} style={{width:"fit-content",lineHeight:"2rem",cursor:"pointer"}}><span style={{width:"fit-content",color:"green"}}>{site.ID<10?('0'+site.ID+'.  '):site.ID + '.  ' }</span>{site.name}</li>)} 
+          <ul className="enfant-de-list"> 
+              {sites.map((site,index)=><li key={index} id={'ID'+index} onClick={()=>{handleClick(site,index)}} style={{width:"fit-content",lineHeight:"2rem",cursor:"pointer"}}><span style={{width:"fit-content",color:"green"}}>{site.ID<10?('0'+site.ID+'.  '):site.ID+ '.  ' }</span>{site.name}</li>)} 
           </ul> 
       </div>
   </div>
@@ -108,22 +90,6 @@ const sites=[
   {ID:23,name:'Ecole 4 de Nguekokh - Fatick',lat:14.5183854,long:-17.0004184},
   {ID:24,name:'Plage Bargny(Operation plage Zéro dechets)',lat:14.686545,long:-17.228878}
 ] 
-// function Sites(props){
-//   const [coord,setCoord]=useState(null)
-//   const map=useMap()
-//   const clicked=useSelector(state=>{return state.userNewCh.local})
-//   let pos=[clicked.lat,clicked.long]
-//   return <div style={{float:"left",zIndex:"1000",height:"95%",width:"150px",margin:"0px",padding:"0px",marginTop:"0px",marginLeft:"0px"}}>
-//       <input value={coord} onChange={()=> map.flyTo(pos,12)} style={{height:"2em",width:"100%",margin:"0px",padding:"0px"}}/>
-//       <ul style={{backgroundColor:"rgba(0,0,0,.1)",color:"rgb(0,0,160)",fontWeight:"bold",overflow:"scroll",height:"95%",width:"100%",borderTop:"2px solid grey",borderLeft:"2px solid grey",margin:"0px",padding:"0px"}}> 
-//           {sites.map(site=><li key={site.ID} onClick={()=>{
-//             setCoord([site.lat,site.long])
-//             props.render(10)
-//             map.flyTo([site.lat,site.long],11);}}><span style={{color:"white",fontSize:"1.05rem"}}>{site.ID + '. ' }</span>{site.name}</li>)} 
-//           {/* map.flyTo([site.lat,site.long],18); */}
-//       </ul> 
-//       </div>
-// }
 
 export function Mapp(props) {
   const index=useSelector(state=>state.userNewCh.index)
@@ -131,15 +97,6 @@ export function Mapp(props) {
   const long=props.long!==undefined?props.chantier.long:-14.7402745;
   // alert(lat+"  "+long)
   const center=[lat, long];
-  // const [center,setCenter]=useState([lat, long]) //[14.5998233, -14.7402745]
-  // const [kZoom,setKZoom]=useState(0)
-  // const [kZoom,setKZoom]=useState(0)
-  // const [coord,setCoord]=useState(null)
-  // const clicked=useSelector(state=>{return state.userNewCh.local})
-  // useEffect(()=>{
-  //   const marker=markerRef.current
-  //   if(marker) marker.closePopup()
-  // })
   const mapRef=useRef(null);
 
   // un tableau de refs qui permet une ref à chaque element d'une liste sur laquelle on boucle
@@ -198,15 +155,5 @@ return <>
       }
       {/* <Sites render={(num)=>setKZoom(num)}/> */}
   </MapContainer>
-   {/* center of Senegal:[14.5998233, -14.7402745] */}
-   {/* <div style={{display:"flex",flexDirection:"column",height:"95%",width:"100%",margin:"0px",padding:"0px",marginTop:"0px",marginLeft:"0px"}}>
-   <div style={{display:"flex",flexDirection:"row",width:"fit-content",marginBottom:"15px"}}>
-        <p style={{margin:"0px 10px",color:"green",fontWeight:"bold"}}>{sites.length} CHANTIERS</p>
-        <input value={coord} onChange={()=>handleSideBarClick} style={{textAlign:"center",height:"2em",width:"50vw",margin:"0px",padding:"0px",fontSize:"0.7rem"}}/>
-    </div>
-    <ul style={{display:"grid",color:"rgb(0,0,160)",listStyle:"none",height:"150px",overflowY:"scroll",width:"95%",borderTop:"2px solid grey",margin:"0px 2%",padding:"0px"}}> 
-        {sites.map((site,index)=><li key={index} id={'ID'+index} onClick={()=>{handleClick(site,index)}} style={{width:"fit-content",lineHeight:"2rem",cursor:"pointer"}}><span style={{width:"fit-content",color:"green",fontSize:"1rem"}}>{site.ID<10?('0'+site.ID+'.  '):site.ID + '.  ' }</span>{site.name}</li>)} 
-    </ul> 
-    </div> */}
 </>
 }

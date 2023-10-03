@@ -59,4 +59,3 @@ export default function MetaData(){
             </div>
         </div>
     }
-//ReactDOM.render(<MetaData/>,document.getElementById('meta-data'))

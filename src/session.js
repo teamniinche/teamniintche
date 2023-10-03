@@ -1,55 +1,40 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState,useLayoutEffect} from 'react';
 import ReactModal from 'react-modal';
-// import {connect} from 'react-redux';
 import {useSelector} from 'react-redux';  //Le HOOK GETTER POUR LE CAS DE @REDUX/TOOLKIT
 import {Link,Outlet} from 'react-router-dom';
 import {UpdateProps} from './requetesFetch.js';
 import {EditMembre} from './editionsOfItems.js';
-import {DataListEquipes} from './dataListes.js'
+import {DataListEquipes} from './dataListes.js';
+import Connexion from './connexion.js'
 import './session.css';
 import {compressImage,convertToBase64,dataURLtoFile} from './traitementImages.js';
 
 const logo=require('./images/logo_niintche_blanc.ico')
-
-// const elem=[
-//     {   
-//         // "id":0, 
-//         "pseudo":"membre0",
-//         // "passWord":"teste0",
-//         "firstName":"Moustapha",
-//         "lastName":"GUEYE",
-//         "alias":"GrandTapha",
-//         // "sexe":"homme",
-//         "departementDOrigine":"Dakar",
-//         // "dateAnniversaire":"01-01-1970",
-//         // "telephoneNumber":"234567890",
-//         // "email":"test@test.com",
-//         "qualification":"Ecrivain-(Les Saillies du profane)",
-//         "tngroupe":"Coordination TN",
-//         "galeriePrive":{"imgPublic":"chantierJFK.jpg","imgPrive":""},
-//         "apropos":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sagittis laoreet dui ut finibus. Phasellus dapibus, orci quis laoreet malesuada, nulla velit auctor ligula, cursus pretium erat nibh sit amet leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum lorem sem, sollicitudin ut dolor vitae, imperdiet facilisis arcu. Nullam gravida laoreet elit luctus eleifend. Etiam condimentum quam ante, vel faucibus velit rhoncus vitae. Aenean tortor diam, egestas ac consequat at, posuere nec justo." 
-//     }
-// ]
-
-const Session=()=>{//{ loggedInUser }
+const Cession=()=>{
+    const loggedInUser=useSelector((state)=>{ return state.userNewCh.loggedInUser})
+    if(loggedInUser===null){
+        return <Connexion/> 
+    }else{
+        return <Session/> 
+    }
+}
+const Session=()=>{
     const [modalDisplay,setModalDisplay]=useState({showModal:false,imgKey:''})
     const [link,setLink]=useState("/compte/nouveauChantier")
     const loggedInUser=useSelector((state)=>{
-        // console.log(state)
         return state.userNewCh.loggedInUser
     })  //le GETTER dans le cas du @redux/toolkit
     const {id,pseudo,firstName, galeriePrive,profil,chef}=loggedInUser
     const avatar='avatar.webp';
     let imageProfil=galeriePrive.imgPublic!==''?galeriePrive.imgPublic:avatar;
     let imgProfil=require('./images/'+imageProfil);
-    useEffect(()=>{
-        document.getElementsByClassName('header')[0].style.display="none";
-        if(profil==='administrateur'){
-        document.querySelector('#admin').style.display="inline-block";
-        if(chef==="non"){
-            setLink("/compte/pagesceo")
-        }
-        };
+    useLayoutEffect(()=>{
+            document.getElementsByClassName('header')[0].style.display="none";
+            if(profil==='administrateur'){
+            document.querySelector('#admin').style.display="inline-block";
+            if(chef==="non"){
+                setLink("/compte/pagesceo")
+            }};
     },[chef,profil])
     // Pour afficher et/ou fermer la fenetre modale et identifiant de l'image selectionnée(=imgKey)
     const [modalDisplaye,setModalDisplaye]=useState({showModal:false,imgKey:'imgPublic'})
@@ -73,14 +58,6 @@ const Session=()=>{//{ loggedInUser }
             // setCompressedImage(compressedImage)                            //commentée:derniere touche
             const compressedFile=dataURLtoFile(compressedImage,file.name)
             setCompressedFile(compressedFile)
-            // setImgName({fileExt:'jpg'})
-            // setCompressedSize(compressedFile.size);
-            // console.log(compressedFile.size)
-            // console.log(compressedFile.type)
-            // setCompressedName(compressedFile.name);
-            // console.log(compressedFile.name)
-            // return compressedImage
-            // setCompressedFile(compressedFile); //setCompressedImage(compressedImage);
             const reader = new FileReader();
               reader.onload = function (e) {
                 const image = document.getElementById('inputChangeImg');
@@ -125,40 +102,6 @@ const imgProfilStyle={
         margin:"0px 3px"}
   return (
     <div className="divBody">
-        {/* <div id="fond_page" >
-            <p>@teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche
-            @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche
-            @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche
-            @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche 
-            @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche 
-            @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche 
-            @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche 
-            @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche 
-            @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche 
-            @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche 
-            @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche 
-            @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche 
-            @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche 
-            @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche 
-            @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche 
-            @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche 
-            @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche 
-            @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche 
-            @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche 
-            @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche 
-            @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche 
-            @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche 
-            @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche 
-            @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche 
-            @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche 
-            @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche 
-            @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche 
-            @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche 
-            @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche 
-            @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche 
-            @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche @teamniintche
-            </p>
-        </div> */}
         <div id="header-inscript">
             <div style={{width:"90%",right:"7%",left:"3%",height:"84%",position:"absolute",display:"flex",flexDirection:"row",padding:"0%",top:"8%"}}>
                 <div style={{display:"flex",flexDirection:"row",width:"50%",minWidth:"fit-content",maxWidth:"250px",height:"100%",padding:"0px",margin:"0px",alignItems:"center",justifyContent:"flex-start",backgroundColor:"white",borderRadius:"20% 4% 4% 20%"}}>
@@ -245,7 +188,7 @@ const imgProfilStyle={
                     </ReactModal>
                     <span style={{display:"flex",flexDirection:"column"}}>
                         <h5 id="detail2" style={{padding:"0px",margin:"0px",marginTop:"5%"}}><Link to="/compte/">{firstName.split(" ")[0]}</Link><i class="far fa-edit" style={{margin:"15px",color:"rgba(0,0,200,.8)"}} onClick={()=>setModalDisplay({showModal:true})}></i></h5>
-                        <Link to='/deconnexion' style={{display:"inline-block",width:"70%",padding:"5px 8px",margin:"0px",height:"40%",paddingBottom:"10%"}}>Déconnexion</Link>
+                        <Link to='/connexion' style={{display:"inline-block",width:"70%",padding:"5px 8px",margin:"0px",height:"40%",paddingBottom:"10%"}}>Déconnexion</Link>
                     </span>
                 </div>
                 <div style={{display:"flex",flexDirection:"column",width:"40%",height:"90%",padding:"0px",margin:"0px",alignItems:"flex-end",justifyContent:"center",position:"absolute",right:"4px"}}>
@@ -265,7 +208,7 @@ export function CompteBody(props) {
     let placeholder2="Insformations et vos suggestions ici ..."
     const UpdateMembre=(prop)=>{
         let pseudo=props.pseudo
-        fetch('/api/membres/'+pseudo+'/'+prop, {
+        fetch('/api/membres/galerie/'+pseudo+'/'+prop, {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json'
@@ -550,14 +493,11 @@ export function Img(props) {
     // Données à utiliser à l'enregistrement(la requete fetch aux trois parametres sur les membres à utiliser)
     // const [compressedImage, setCompressedImage] = useState(null); //commentée:derniere touche
     const [compressedFile, setCompressedFile] = useState(null);
-    // const [compressedSize, setCompressedSize] = useState(null);
-    // const [compressedName, setCompressedName] = useState(null);
 
         const pseudo=image.pseudo
-        const prop='galeriePrive'
         const sProp=modalDisplay.imgKey
         const fileName={nameToSave:imgName.imgName+'.'+imgName.fileExt}
-        let Url='/api/membres/'+pseudo+'/'+prop+'/'+sProp
+        let Url='/api/membres/galerie/'+pseudo+'/'+sProp //'/api/membres/'+pseudo+'/'+prop+'/'+sProp
     // 
     let src=image.image!==''?require('./images/'+image.image):require('./images/logo_niintche.webp') // =à l'ouverture de l'appli || au click de l'icone
     // Switch ON du Modal (le switch OFF est mis INLINE)
@@ -589,28 +529,15 @@ export function Img(props) {
         const input =event.target;
         if (input.files && input.files[0]) {
             let file=input.files[0]
-            // console.log(file.size)
             let nomImage='membre'+props.Id+props.Key
-            // const fileName = file.name;
-            // const fileExtension = fileName.slice((fileName.lastIndexOf('.') - 1 >>> 0) + 2);
-            //setImgName({imgName:nomImage,fileExt:fileExtension})
             setImgName({imgName:nomImage,fileExt:'jpg'})
             //qualité des images fonction de l'image
             let n=null,wH=null
             if(props.Key==='imgPublic'){n=1;wH=300;}else{n=0.5;wH=150}
         const base64Image = await convertToBase64(file);
         const compressedImage = await compressImage(base64Image,n,wH);
-        // setCompressedImage(compressedImage)                            //commentée:derniere touche
         const compressedFile=dataURLtoFile(compressedImage,file.name)
         setCompressedFile(compressedFile)
-        // console.log(compressedFile.size)
-        // setCompressedSize(compressedFile.size);
-        // console.log(compressedFile.size)
-        // console.log(compressedFile.type)
-        // setCompressedName(compressedFile.name);
-        // console.log(compressedFile.name)
-        // return compressedImage
-        // setCompressedFile(compressedFile); //setCompressedImage(compressedImage);
         const reader = new FileReader();
           reader.onload = function (e) {
             const image = document.getElementById('inputChangeImg');
@@ -722,4 +649,4 @@ const handleModalClick=()=>{
 // export const ConnectedFieldsetCompte = connect(mapStateToProps)(FieldsetCompte);
 // export default connect(mapStateToProps)(Session)
 
-export default Session
+export default Cession

@@ -3,14 +3,58 @@
     width:65vw;
     float: right;
 }
+#map{
+  display:flex;
+  flex-direction:column;
+}
+#div-avec-map{
+  display:flex;
+  flex-direction:column;
+  height:95%;
+  padding:0px;
+  margin-left:0px
+  }
+    #div-avec-map ul{
+        display:grid;
+        height:60vh;
+        overflow-y:scroll;
+        color:rgb(0,0,160);
+        list-style:none;
+        width:95%;
+        border-top:2px solid grey;
+        margin:0px 2%;
+        padding:0px
+        }
+.enfant-de-list{
+  display:flex;
+  flex-direction:row;
+  width:96%;
+  margin-bottom:15px;
+  }
+    .enfant-de-list p{
+        margin:0px 10px;
+        color:green;
+        font-weight:bold;
+        width:45%;
+        }
+    .enfant-de-list input{
+        text-align:center;
+        height:2em;
+        width:50%;
+        margin:0px;
+        padding:0px;
+        font-size:0.7rem
+        }
+
 @media screen and (max-width:1000px){
     .leaflet-container{
-      width:50vw;
-      height:50vw;
-    }; }
+      width:96vw;
+      height:55vw;
+    };
+
+   }
 @media screen and (min-width:1000px){
     #map{
-        display:flex;
         flex-direction:row-reverse;
     }
     #div-avec-map{
@@ -20,8 +64,7 @@
       margin-top: 30px;
     }
     .enfant-de-list{
-      width:90%; 
-      /* height:"150px",overflowY:"scroll" */
+      width:90%;
       height: fit-content;
     }
     .enfant-de-list li{
@@ -30,10 +73,8 @@
     .enfant-de-list p,.enfant-de-list span{
       /* span pour autres dim:,fontSize:"1rem" */
       font-size:1em;
-
     }
     #div-avec-map ul{
       height: 35vw;
-      overflow-y: scroll;
     }
   }

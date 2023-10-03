@@ -2,7 +2,6 @@ import React ,{useEffect,useState} from 'react';
 import {useContext} from 'react';
 import './nous.css';
 import {ResearchBar} from './sideBar.js';
-// import membres from './membres.json';
 import {Link, Outlet} from 'react-router-dom';
 import InputString from './forms.js';
 import MetaData from './nousContacter';
@@ -38,7 +37,7 @@ export function Nous (props){
     document.getElementsByClassName('header')[0].style.height="0px"; //"0px" doit etre dynamisé
     fetch('/api/membres/allmembres')
       .then(response => response.json())
-      .then(membres => setMembres(membres))
+      .then(membres => {setMembres(membres)})
       .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur
   }, []);
   if (error) {
@@ -47,7 +46,7 @@ export function Nous (props){
 
   function inputChange(val){
     if (val===""){
-      fetch('/api/membres')
+      fetch('/api/membres/allmembres')
       .then(response => response.json())
       .then(membres => setMembres(membres))
       .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur
@@ -55,7 +54,7 @@ export function Nous (props){
         return <div>Une erreur s'est produite : {error}</div>;
       }
     }else{
-      fetch('/api/membre/'+val)
+      fetch('/api/membres/allmembres/'+val)
       .then(response => response.json())
       .then(membres => setMembres(membres))
       .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur
@@ -79,49 +78,16 @@ export function Nous (props){
     </MembreContext.Provider>
     );
   }
-// export class Nous extends React.Component{
-//   constructor(props){
-//     super(props);
-//     this.state = {membre:membreDefault,termOfRechease:""};
-//     this.inputChange = this.inputChange.bind(this);
-//     this.handlaRender = this.handlaRender.bind(this);
-//   }
-  
-//   inputChange=(val)=>{this.setState({termOfResearch:val.toUpperCase()})}
-//   handlaRender=(membre)=>{this.setState({membre:membre})}
-//   render(){
-//     let membres=<Membres render={elements=>elements}/>
-//     let state=this.state.termOfResearch
-//     let inptValue=state===undefined?"":state;
-//     let lesMembres= inptValue=""?membres:membres.filter(item=>(item.firstName+item.lastName+item.alias+item.sexe).toUpperCase().includes(inptValue));
-//     return (
-//     <MembreContext.Provider value={{membreObject:this.state}} >
-//       <div className='noustronc'>
-//         <div className='noussidebar'>
-//           <ResearchBar typ="MEMBRE" number={lesMembres.length} termOfResearch={this.state.termOfResearch} render={iptValue=>this.inputChange(iptValue)} />
-//           {lesMembres.map((item)=><Membre key={item.id} membre={item} render={membre=>this.handlaRender(membre)} />)}
-//         </div>
-//         <DetailsMembre/>
-//       </div>
-//     </MembreContext.Provider>
-//     );
-//   }}
-
 
 function DetailsMembre(){
   let myContext=useContext(MembreContext)
   let membre=myContext.membreObject.membre
   const avatar=[['avatar.webp','NO IMAGES']]
-  // const imgProfilLink=membre.galeriePrive.imgPublic
-  // "galeriePrive":{"imgPublic":"","imgPrive":"","imgPublic1":"","imgPublic2":""}
   const {imgPublic,imgPrive,imgPublic1,imgPublic2}=membre.galeriePrive
   const IMAGES=[[imgPublic,''],[imgPrive,''],[imgPublic1,''],[imgPublic2,'']]
   let images=IMAGES.filter(image=>image[0]!=='')
   let imges=images.length===0?avatar:images;
 
-  // let imageProfil=imgProfilLink!==''?imgProfilLink:avatar;
-  // let membreImg1=require('./images/'+ imageProfil);
-  // const membreImg1=require('./images/' + membre.galeriePrive.imgPublic);
   const facebook=require('./images/RS_logos/facebook.webp');
   const twitter=require('./images/RS_logos/twitter.webp');
   const instagram=require('./images/RS_logos/instagram.webp');
@@ -129,7 +95,6 @@ function DetailsMembre(){
 return(     
     <div className='detailsmembre'>
       <div className='memberCard'>
-        {/* <img src={membreImg1} alt='Prenom NOM'/> */}
         <Slider images={imges} classe='sliderRendu' classe1='sliderNavPrec2' classe2='sliderNavSuiv2' />
         <div className='etatCivil'>
           <p style={{marginBottom:"5px"}}>

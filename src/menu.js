@@ -17,6 +17,8 @@ export default function Menu() {
         <hr/>
         <Link to='/quisommesnous' className='menu_link'>QUI SOMMES-NOUS ?</Link>
         <hr/>
+        <Link to='/' className='menu_link'>Notre Comptabilité</Link>
+        <hr/>
         <Link to='/nousContacter' className='menu_link'>NOUS CONTACTER</Link>
         <hr/>
         <Link to='/CEO' className='menu_link'>PAGES CEO</Link>

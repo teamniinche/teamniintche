@@ -6,18 +6,9 @@ import Map from './map.js'
 import Slider from './slider';
 import {images} from './icons.js';
 import PresentationEtablissement from './local.js'
-// import { Outlet } from 'react-router-dom';
       
 
 export default function Tronc(props) {
-  // const image1=require("./images/" + props.chantier.imges.imgAvant);
-  // function onClick(){
-  //   if(document.getElementById('imagesChantier')) {
-  //     document.getElementById('imagesChantier').style.float="left";
-  //   }// monElement.style.width="100vw";
-  //   // monElement.style.height="80vh";
-  //   // monElement.style.flaot="left";
-  //   }
   useEffect(()=>{document.getElementsByClassName('header')[0].style.height="36vh";})
   return (
     <div className='tronc'>

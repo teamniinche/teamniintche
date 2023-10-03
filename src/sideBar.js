@@ -2,9 +2,7 @@ import React,{useEffect,useState} from 'react';
 import {Link} from 'react-router-dom';
 import Tronc from './tronc.js';
 import {useDispatch} from 'react-redux' ;
-// import {useSelector} from 'react-redux' ;
 import {chantiersCounter,localisation,setIndex} from './stoore.js';
-// import Chantiers from './chantiers.json';
 import './sideBar.css';
 
 class Chantier extends React.Component{
@@ -36,19 +34,20 @@ class Chantier extends React.Component{
     }
     onClick = ()=>{
       this.props.render(this.props.chantier)
-      // dispatch(chantier)
       document.getElementsByClassName("sideBar")[0].style.display= window.innerWidth >="700"?"inline-block":"none";
       document.getElementsByClassName("tronc")[0].style.display="inline-block";
       };
     render(){
-      // const debut=this.dateDebut.split('-')[0]
-      // const fin=this.dateFin.split('-')[0]
-      // // const imagList=require("./images/" + this.props.chantier.imges.imgAvant);
       const imagList=require("./images/" + this.props.chantier.etat.etat0.linkImg);
+      const montant=this.props.chantier.coût?this.props.chantier.coût +' FCfa':'non renseigné';
       return  <div className="chantiers_bloc">
           <Link onClick={this.onClick}>
               <img src={imagList} alt="images-projet" id="img01"/>
-              <div className="item_left"><p>Chantier {this.props.chantier.name} <br/><span>{this.intervalDate(this.dateDebut,this.dateFin)} </span></p></div>
+              <div className="item_left">
+              <p>Activité {this.props.chantier.name}<br/>
+              <span style={{textDecoration:"underline",color:"rgb(0,0,100)",fontWeight:"bold"}}>{this.props.chantier.type}</span><br/>
+              <span style={{color:"rgb(0,0,100)"}}>{'Coût : '+ montant}</span> <br/>
+              <span>{this.intervalDate(this.dateDebut,this.dateFin)} </span></p></div>
           </Link>
         </div>
      }
@@ -82,16 +81,12 @@ class Chantier extends React.Component{
             "bilan":"placeholder du bilan"
         };
       const [state,setState] = useState({chantier:defaultChantier});
-      // const [index,setIndex]=useState(0)
       const [chantiers, setChantiers] = useState({chantiers:[],nombre:''});
       const [error, setError] = useState('');
       let Chantiers=chantiers.chantiers
       let nombre=chantiers.nombre
       function chantierChange(chantier,index){
-        // document.getElementById('ID'+index).click()
-        // alert(chantier.lat)
         setState({chantier:chantier})
-        // setIndex(index)
         dispatch(localisation({pos:[chantier.lat,chantier.long],index:index}))
         dispatch(setIndex(index))
         document.getElementsByClassName('containerOnly')[0].style.display='block';
@@ -106,7 +101,7 @@ class Chantier extends React.Component{
           .then(chantiers => {setChantiers({...chantiers,chantiers:chantiers})})
           .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur
           }else{
-          fetch('/api/chantier/'+val)
+          fetch('/api/chantiers/allchantiers/'+val)
             .then(response => response.json())
             .then(chantiers => setChantiers({...chantiers,chantiers:chantiers}))
             .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur
@@ -121,7 +116,7 @@ class Chantier extends React.Component{
                   setChantiers({chantiers:chantiers,nombre:chantiers.length})
                 })
           .catch(error => setError(error.message)); // Stocke uniquement le message de l'erreur
-        });
+        },[dispatch]);
     
       if (error) {
         return <div>Une erreur s'est produite : {error}</div>;
@@ -143,42 +138,6 @@ class Chantier extends React.Component{
       )
     // }
   }
-
-// export default class SideBar extends React.Component{
-//   constructor(props){
-//     super(props);
-//     const defaultChantier={   
-//       "id":0, 
-//       "name":"John F.J.K",
-//       "imges":{"imgAvant":"chantierJFK.jpg","imgDevi":"","imgApres":"","imgBilan":""},
-//       "redaction":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sagittis laoreet dui ut finibus. Phasellus dapibus, orci quis laoreet malesuada, nulla velit auctor ligula, cursus pretium erat nibh sit amet leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum lorem sem, sollicitudin ut dolor vitae, imperdiet facilisis arcu. Nullam gravida laoreet elit luctus eleifend. Etiam condimentum quam ante, vel faucibus velit rhoncus vitae. Aenean tortor diam, egestas ac consequat at, posuere nec justo." 
-//     };
-//     this.state = {chantier:defaultChantier,termOfResearch:""};
-//     this.chantierChange=this.chantierChange.bind(this);
-//     this.inputChange=this.inputChange.bind(this);
-//     }
-//   chantierChange=chantier=>this.setState({chantier:chantier});
-//   inputChange=(val)=>this.setState({termOfResearch:val.toUpperCase()})
-//   render() {
-//     let inputValue=this.state.termOfResearch;
-//     let chantiers=inputValue=""?Chantiers:Chantiers.filter(item=>item.name.toUpperCase().includes(inputValue.toUpperCase()));
-//     return (
-//       <div className="Tablette_pc">
-//         <Tronc chantier={this.state.chantier}/>
-//         <div className='sideBar'>
-//             <div className="chantiers" id="chantiers_title">
-//                 <p>{chantiers.length} Chantiers trouvé(s)</p>
-//                  <hr/>
-//             </div>
-//             <div className='listChantiers'>
-//               <ResearchBar typ="CHANTIER" number={chantiers.length} termOfResearch={this.state.termOfResearch} render={(iptValue)=>{this.inputChange(iptValue)}} /> 
-//               {chantiers.map((item,key)=><Chantier key={item.id} chantier={item} render={chantier=> this.chantierChange(chantier)} />)}
-//              </div>
-//         </div>
-//       </div>
-//     )
-//   }
-// }
 
 
 

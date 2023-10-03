@@ -1,15 +1,8 @@
 import React from 'react'
 import Slider from './slider';
-// import {Mapp} from './map.js'
-// import SideBar from './sideBar';
-// import {images} from './icons.js';
 import './local.css'
 export default function PresentationEtablissement(props) {
-
-    // const plaque=require('./images/plaque_etablissement.webp')
     const chantier=props.chantier
-    // const lat=chantier.lat;
-    // const long=chantier.long;
     const {etat0,etat1,etat2,etat3}=chantier.etat
     const {rendu0,rendu1,rendu2,rendu3}=chantier.rendu
     const imagesEtat=[
@@ -23,11 +16,7 @@ export default function PresentationEtablissement(props) {
     let etatImages=imagesEtat.filter(image=>image[0]!=='')
     let renduImages=imagesRendu.filter(image=>image[0]!=='')
   return <>
-        {/* <SideBar/> */}
-        
         <h6 id="tec" style={{height:'0px',margin:'0px'}}>'</h6>
-        {/* <div style={{height:"fit-content"}}> */}
-            {/* <Mapp index={props.index}/> */}
             <ul id="entete">
                 <li style={{lineHeight:"2em"}}><a href='#hist'>Présentation</a></li>
                 <li style={{lineHeight:"2em"}}><a href='#1'>Etat des lieux avant</a></li>
@@ -35,17 +24,7 @@ export default function PresentationEtablissement(props) {
                 <li style={{lineHeight:"2em"}}><a href='#3'>Rendu de l'ouvrage après</a></li>
                 <li style={{lineHeight:"2em"}}><a href='#4'>Bilan & Perspectives</a></li>
             </ul>
-        {/* </div> */}
         <h2 id="0" style={{margin:"0px",marginTop:"1em",borderTop:"1px double brown",padding:".5em 1em"}}><a href="#tec" style={{ letterSpacing: "2px",textDecoration:"none" }}>🔺 Présentation de l'établissement</a></h2>
-        
-        {/* <div style={{height:"170px",width:"98%",position:"relative",margin:"1%"}}> */}
-        {/* textShadow:"2px 2px 1px black", color:"rgb(200,0,0)" ,textShadow:"2px 2px 1px rgb(100,100,100)" */}
-            {/* <img src={plaque} alt="background de la plaque etablissement" style={{float:"left",margin:"0px",padding:"0px",width:"100%",height:"100%"}}/>
-            <h2 style={{position:"absolute",textAlign:"center",textShadow:"2px 2px .5px white,-2px -2px .5px white",color:"rgba(0,0,0,.7)",top:"3%",left:"10%",right:"10%"}}>I.A de <span style={{}}>{chantier.région} </span></h2>
-            <h3 style={{position:"absolute",textAlign:"center",textShadow:"2px 2px .5px white,-2px -2px .5px white",color:"rgba(0,0,0,.7)",borderBottom:".5px solid grey",paddingBottom:"8px",top:"25%",left:"10%",right:"10%"}}>I.E.F de <span style={{}}>{chantier.departement} </span></h3>
-            <h4 style={{position:"absolute",textAlign:"center",textShadow:"2px 2px .5px white,-2px -2px .5px white",color:"rgba(0,0,0,.7)",top:"42%",left:"5%",right:"5%",fontSize:"20px",letterSpacing:"2px"}}>{chantier.name} </h4> */}
-        {/* </div> */}
-        {/* <Mapp index={props.index}/> */}
         <Plaque chantier={chantier}/>
         <p style={{margin:"1%",padding:"4% 6%",width:"86%",fontSize:"18px",lineHeight:"1.5em",height:"fit-content",borderRadius:"5px",textAlign:"justify",letterSpacing:"2px",fontWeight:"bold",color:"rgba(0,0,0,.7)",textShadow:"2px 2px .5px white",backgroundColor:"rgba(0,0,0,.09)"}}>
         {chantier.presentation}
@@ -57,7 +36,6 @@ export default function PresentationEtablissement(props) {
     </>
 }
 export function Etat(props){
-  // {props.chantier.redaction}
   const chantier=props.chantier
   return <>
     <h2 id="1" style={{margin:"0px",marginTop:"1em",borderTop:"1px double brown",padding:".5em 1em"}}><a href="#tec" style={{ letterSpacing: "2px",textDecoration:"none" }}>🔺 Etat des lieux avant travaux</a></h2>
@@ -81,7 +59,6 @@ export function FicheProjet(props) {
 }
 
 export function Rendu(props){
-  // {props.chantier.redaction}
   const chantier=props.chantier
   return <>
     <h2 id="3" style={{margin:"0px",marginTop:"1em",borderTop:"1px double brown",padding:".5em 1em"}}><a href="#tec" style={{ letterSpacing: "2px",textDecoration:"none" }}>🔺 Rendu de l'ouvrage après travaux</a></h2>
@@ -99,13 +76,13 @@ export function BilanTravaux(props){
 }
 
 export function Plaque(props) {
-  const {région,departement,name}=props.chantier
+  const {region,departement,name}=props.chantier
   const plaque=require('./images/plaque_etablissement.webp')
   return (
     <div style={{height:"170px",width:"98%",position:"relative",margin:"1%"}}>
         {/* textShadow:"2px 2px 1px black", color:"rgb(200,0,0)" ,textShadow:"2px 2px 1px rgb(100,100,100)" */}
             <img src={plaque} alt="background de la plaque etablissement" style={{float:"left",margin:"0px",padding:"0px",width:"100%",height:"100%"}}/>
-            <h2 style={{position:"absolute",textAlign:"center",textShadow:"2px 2px .5px white,-2px -2px .5px white",color:"rgba(0,0,0,.7)",top:"3%",left:"10%",right:"10%"}}>I.A de <span style={{}}>{région} </span></h2>
+            <h2 style={{position:"absolute",textAlign:"center",textShadow:"2px 2px .5px white,-2px -2px .5px white",color:"rgba(0,0,0,.7)",top:"3%",left:"10%",right:"10%"}}>I.A de <span style={{}}>{region} </span></h2>
             <h3 style={{position:"absolute",textAlign:"center",textShadow:"2px 2px .5px white,-2px -2px .5px white",color:"rgba(0,0,0,.7)",borderBottom:".5px solid grey",paddingBottom:"8px",top:"25%",left:"10%",right:"10%"}}>I.E.F de <span style={{}}>{departement} </span></h3>
             <h4 style={{position:"absolute",textAlign:"center",textShadow:"2px 2px .5px white,-2px -2px .5px white",color:"rgba(0,0,0,.7)",top:"42%",left:"5%",right:"5%",fontSize:"20px",letterSpacing:"2px"}}>{name} </h4>
         </div>

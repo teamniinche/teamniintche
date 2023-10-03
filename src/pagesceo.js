@@ -1,36 +1,12 @@
 import React,{useState} from 'react';
 import {useDispatch} from 'react-redux'  //LE HOOK SETTER pour le cas de @redux/toolkit
 import {modifyChantier} from './stoore.js'  // ACTION Pour le HOOK SETTER pour le cas de @redux/toolkit
-// import {useEffect} from 'react';
 import {Link,useNavigate} from 'react-router-dom';
 import ReactModal from 'react-modal'
-// import {connect} from 'react-redux';
-// import {chantierToChange} from './actions.js';
-// import {Link} from 'react-router-dom';
 import './pagesceo.css';
 import {editer,supprimer,ajouter} from './icons.js';
-// import {InputString} from './forms.js';
 import {EditRubrique,EditMembreAdmin} from './editionsOfItems.js';
 import {UpdateProps} from './requetesFetch.js';
-// function DerminationOfPrposValues(props){
-//   const [typeProps,setTypeProps]=useState({id:"",nom:"",local:""})
-//   const selection=props.selection;
-//   const type=props.type;
-//   if(type==="membres"){
-//     setTypeProps({id:selection.id,nom:selection.firstName + " " + selection.lastName,local:selection.departementDOrigine})
-//   }else if(type==="chantiers"){
-//     setTypeProps({id:selection.id,nom:selection.name,local:selection.departement})
-//   }else{
-//     setTypeProps({id:selection.id,nom:selection.titre,local:""})
-//     }
-//   return
-//   {props.render(typeProps)}
-// }
-
-// const EditContext=React.createContext({
-//   item:{},
-//   setItem:()=>{}
-//   });
 export default function  Pagesceo(){
   const [selections,setSelections]=useState([])
   const [type,setType]=useState("")

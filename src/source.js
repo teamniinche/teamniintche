@@ -5,13 +5,13 @@ import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
 // import { PersistGate } from 'redux-persist/integration/react';
 // import { persistor } from './store';
 import Heade from "./heade.js";
-import NewChantier from "./newChantier.js";
+// import NewChantier from "./newChantier.js";
 import Sections from './sections.js';
 import {Nous,SecondeBar} from './nous.js';
 import LaTeam from './lateam.js';
-import Discussion from './discussion.js';
-// import MetaData from './nousContacter.js';
-import Map from './map.js'
+// import Discussion from './discussion.js';
+import MetaData from './nousContacter.js';
+// import Map from './map.js'
 // import Inscription from './inscription.js'
 import Forms from './forms.js'
 import Connexion from './connexion.js'
@@ -39,9 +39,9 @@ export default function Teamniintche() {
                       <Route path="/quisommesnous/niintche" element=<Slider images={images} classe='sliderEtat' classe1='sliderNavPrec1' classe2='sliderNavSuiv1'/>/>
                       <Route path="/quisommesnous/" element=<LaTeam/>/>
                 </Route>
-                <Route path="/newChantier" element=<NewChantier />/>
-                <Route path="/discussion" element=<Discussion/>/>
-                <Route path="/nouscontacter" element=<Map/>/>
+                {/* <Route path="/newChantier" element=<NewChantier />/>
+                <Route path="/discussion" element=<Discussion/>/> */}
+                <Route path="/nouscontacter" element=<MetaData/>/>
                 {/* MetaData */}
                 <Route path="/connexion" element=<Connexion/>/>
                 <Route path="/compte" element=<Session/>>

@@ -1,23 +1,22 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState,useLayoutEffect} from 'react';
 import {Link,useNavigate} from 'react-router-dom';
 import {useDispatch} from 'react-redux'   //le HOOK SETTER dans le cas de @redux/toolkit
 import {loggedAccess} from './stoore.js'   //Pour le HOOK SETTER dans le cas de @redux/toolkit
 import {InputString} from './forms.js';
-// import Session from './session.js';
 import './connexion.css';
-// import {connect} from 'react-redux';
-// import {loginSuccess} from './actions.js';
 import { identifiant,securite } from './icons.js';
 import { nameValidator,passwordValidator } from './regExpressions.js';
 
 
-const Connexion = () =>  {//{ dispatch }
+const Connexion = () =>  {
     const [dataUser,setDataUser]=useState({Identifiant:"",Mot:""})
-    // const [membre,setMembre]=useState({})
-    // const [error,setError]=useState("")
     const Navigate=useNavigate()
     const dispatch=useDispatch()  //le HOOK SETTER dans le cas de @redux/toolkit
-    useEffect(()=>{ document.getElementsByClassName('header')[0].style.display="block";})
+    useLayoutEffect(()=>{ 
+                    document.getElementsByClassName('header')[0].style.display="block";
+                    dispatch(loggedAccess(null))
+                  }
+            )
     function handleChange(obj){
         document.getElementById('buttonConnectClick').style.display="none";
         let name=(obj.nom).split(" ")[0]
